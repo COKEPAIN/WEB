@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<p>새로운 게시물이 추가되었습니다.</p>";
     } else {
         echo "<p>오류: " . $conn->error . "</p>";
-    }
+    } 
 }
 
 $conn->close();
