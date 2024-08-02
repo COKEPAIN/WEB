@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo "<p>오류: " . $conn->error . "</p>";
     } 
 } 
-
+ 
 $conn->close();
 $content = <<<HTML
 <body>
