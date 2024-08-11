@@ -19,9 +19,9 @@ if ($conn->connect_error) {
 
 // POST 요청 처리
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $title = $conn->real_escape_string($_POST['title']);
-    $content = $conn->real_escape_string($_POST['content']);
-    $type = $conn->real_escape_string($_POST['type']);
+    $title = htmlspecialchars($conn->real_escape_string($_POST['title']);, ENT_QUOTES,'UTF-8');
+    $content = htmlspecialchars($conn->real_escape_string($_POST['content']);, ENT_QUOTES,'UTF-8');
+    $type = htmlspecialchars($conn->real_escape_string($_POST['type']);, ENT_QUOTES,'UTF-8');
     
     $sql = "INSERT INTO posts (title, content, type) VALUES ('$title', '$content', '$type')";
     if ($conn->query($sql) === TRUE) {
@@ -33,6 +33,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
  
 $conn->close();
 $content = <<<HTML
+<head>
+<meta
+  http-equiv="Content-Security-Policy"
+  content="default-src 'self'; img-src https://*; child-src 'none';" />
+</head>
 <body>
     <div class="content">
         <div class="form-container">
