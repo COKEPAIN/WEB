@@ -21,8 +21,7 @@ $result = $conn->query($sql);
 $content = "<h1>Stored XSS</h1>";
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-        $content .= "<h2>" . htmlspecialchars($row["title"]) . "</h2>";
-        $content .= "<p>" . $row["content"] . "</p>";
+        $content .= "<h2><a href='view_post.php?id=".$row["id"]."'>". htmlspecialchars($row["title"]) . "</a></h2>";
     }
 } else {
     $content .= "<p>게시물이 없습니다.</p>";

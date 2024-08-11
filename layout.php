@@ -31,7 +31,7 @@
         <a href="dom_based_xss.php">DOM-Based XSS</a>
 
         <h4>CSRF</h4><hr>
-        <a href="csrf.php">CSRF</a>
+        <a href="#">CSRF</a>
 
         <h4>Injection</h4><hr>
         <a href="#">SQL Injection</a>

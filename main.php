@@ -25,9 +25,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     $sql = "INSERT INTO posts (title, content, type) VALUES ('$title', '$content', '$type')";
     if ($conn->query($sql) === TRUE) {
-        echo "<p>새로운 게시물이 추가되었습니다.</p>";
+        echo "<script>alert('새로운 게시물이 추가되었습니다.')</script>";
     } else {
-        echo "<p>오류: " . $conn->error . "</p>";
+        echo "<script>alert('오류:$conn->error')";
     } 
 } 
  
@@ -36,13 +36,8 @@ $content = <<<HTML
 <body>
     <div class="content">
         <div class="form-container">
-            <h2>게시물 작성</h2>
+            <h2>게시물 작성</h2><hr>
             <form method="post" action="">
-                <span>카테고리 : </span><select id="type" name="type" required>
-                    <option value="stored">Stored XSS</option>
-                    <option value="reflected">Reflected XSS</option>
-                    <option value="dom">DOM-Based XSS</option>
-                </select><br><br>
                 <label for="title">제목:</label>
                 <input type="text" id="title" name="title" required><br><br>
                 <label for="content">내용:</label>
